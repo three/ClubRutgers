@@ -40,8 +40,8 @@ function handleSocketConnection(socket) {
     // Find space in the lobby for our player
     var playerid = 0;
     while (lobby[playerid++].active) {
-        if (playerid > 20) {
-            socket.close(); // Not enough room
+        if (playerid >= 20) {
+            socket.disconnect(); // Not enough room
             console.log("Lobby full, turned player away.");
             return;
         }
